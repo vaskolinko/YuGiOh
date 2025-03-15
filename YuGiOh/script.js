@@ -74,3 +74,19 @@ function onClickCard(e) {
     closeCurrentCard();
   }
 }
+
+
+const contentSections = document.querySelectorAll('.content-below');
+
+window.addEventListener('scroll', () => {
+	contentSections.forEach((section, index) => {
+		const scrollPosition = window.scrollY;
+		const sectionOffset = index * window.innerHeight;
+
+		if (scrollPosition >= sectionOffset) {
+			section.style.top = `${scrollPosition - sectionOffset}px`;
+		} else {
+			section.style.top = '0';
+		}
+	});
+});
