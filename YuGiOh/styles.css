@@ -1,3 +1,4 @@
+/* Existing CSS (unchanged) */
 @import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
 
 @font-face {
@@ -8,6 +9,7 @@
   font-style: normal;
 }
 
+/* Add background image to the body */
 body {
   overflow-x: hidden;
   padding: 0;
@@ -15,20 +17,21 @@ body {
   height: 600vh;
   width: 100vw;
   font-family: "Nunito", sans-serif;
-  background-color: #1d1e22; 
-  /*background-image: url('karte/ozadje-temno.png'); */
-  background-size: cover; 
-  background-position: center; 
-  background-repeat: no-repeat; 
-  background-attachment: fixed; 
+  background-color: #1d1e22; /* Fallback color */
+  /*background-image: url('karte/ozadje-temno.png'); /* Replace with your image path */
+  background-size: cover; /* Cover the entire page */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Prevent repeating */
+  background-attachment: fixed; /* Optional: Fix the background while scrolling */
   color: white;
 }
 
+/* Ensure the header, wheel, and other content are above the background */
 .header,
 .slider-section,
 .logo-container {
-  position: relative; 
-  z-index: 1; 
+  position: relative; /* Ensure elements are above the background */
+  z-index: 1; /* Bring elements to the front */
 }
 
 /* Logo Container */
@@ -36,7 +39,7 @@ body {
   display: flex;
   justify-content: center;
   width: 30%;
-  margin: 20px auto;
+  margin: 20px auto; /* Add some margin */
 }
 
 .logo-container .logo {
@@ -91,6 +94,7 @@ img {
   will-change: transform;
 }
 
+/* Header for Displaying Clicked Cards */
 .header {
   position: fixed;
   top: 0;
@@ -115,36 +119,10 @@ img {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
 }
 
-.content-container {
-	position: relative;
-	z-index: 3; 
-}
-
+/* Additional Content Styles */
 .content-below {
-	height: 100vh; 
-	padding: 20px;
-	text-align: center;
-	background-color: #1d1e22; 
-	border-radius: 10px;
-	position: sticky;
-	top: 0; 
-	transition: top 0.5s ease; 
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-}
-
-.content-below:nth-child(1) {
-	border: 2px solid red; 
-}
-
-.content-below:nth-child(2) {
-	border: 2px solid green; 
-}
-
-.content-below:nth-child(3) {
-	border: 2px solid blue; 
+  padding: 20px;
+  text-align: center;
 }
 
 .content-below h2 {
@@ -163,12 +141,12 @@ img {
 	flex-direction: column;
 	align-items: center;
 	justify-content: space-between;
-	height: 100vh; 
-	background-image: url('karte/ozadje10.jpg'); 
-	background-size: cover; 
-	background-position: center; 
-	background-repeat: no-repeat; 
-	overflow: hidden; 
+	height: 100vh; /* Full screen height */
+	background-image: url('karte/ozadje10.jpg'); /* Add your background image */
+	background-size: cover; /* Cover the entire banner */
+	background-position: center; /* Center the image */
+	background-repeat: no-repeat; /* Prevent repeating */
+	overflow: hidden; /* Hide overflow to clip the wheel */
 }
 
 /* Overlay for the Banner */
@@ -182,19 +160,20 @@ img {
 	background:
 		linear-gradient(
 			to bottom right,
-			rgba(0, 0, 0, 0.9), 
-			rgba(0, 0, 0, 0) 
+			rgba(0, 0, 0, 0.9), /* Darker in the top-left corner */
+			rgba(0, 0, 0, 0) /* Transparent in the bottom-right corner */
 		),
 		linear-gradient(
 			to bottom left,
-			rgba(0, 0, 0, 0.9), 
-			rgba(0, 0, 0, 0) 
+			rgba(0, 0, 0, 0.9), /* Darker in the top-right corner */
+			rgba(0, 0, 0, 0) /* Transparent in the bottom-left corner */
 		);
-	z-index: 1; 
+	z-index: 1; /* Ensure the overlay is above the background image */
 }
 
+/* Ensure content inside the banner is above the overlay */
 .logo-container,
 .slider-section {
 	position: relative;
-	z-index: 2; 
+	z-index: 2; /* Bring content above the overlay */
 }
