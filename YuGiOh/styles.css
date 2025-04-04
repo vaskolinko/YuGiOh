@@ -99,13 +99,13 @@ header a{
 /* thumbail */
 .thumbnail {
     position: absolute;
-    bottom: 100px; /* Increase this value to move thumbnails up above stats */
-    left: 50%;
+    bottom: 100px; /* Keep this value to position above the stats banner */
+    left: 60%; /* Change from 50% to 60% to move right */
     width: max-content;
     z-index: 100;
     display: flex;
     gap: 20px;
-    transform: translateX(-50%); /* Center horizontally */
+    transform: translateX(-50%); /* Keep this to offset based on the container width */
 }
 .thumbnail .item{
     width: 150px;
