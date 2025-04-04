@@ -1,76 +1,72 @@
-gsap.registerPlugin(Draggable, Flip);
+//step 1: get DOM
+let nextDom = document.getElementById('next');
+let prevDom = document.getElementById('prev');
 
-let wheel = document.querySelector(".wheel"),
-  images = gsap.utils.toArray(".wheel__card"),
-  cards = gsap.utils.toArray(".wheel__card"),
-  header = document.querySelector(".header"),
-  currentCard; 
+let carouselDom = document.querySelector('.carousel');
+let SliderDom = carouselDom.querySelector('.carousel .list');
+let thumbnailBorderDom = document.querySelector('.carousel .thumbnail');
+let thumbnailItemsDom = thumbnailBorderDom.querySelectorAll('.item');
+let timeDom = document.querySelector('.carousel .time');
 
-function setup() {
-  let radius = wheel.offsetWidth / 2,
-    center = radius,
-    slice = 360 / images.length,
-    DEG2RAD = Math.PI / 180;
-  gsap.set(images, {
-    x: i => center + radius * Math.sin(i * slice * DEG2RAD),
-    y: i => center - radius * Math.cos(i * slice * DEG2RAD),
-    rotation: i => i * slice,
-    xPercent: -50,
-    yPercent: -50
-  });
+thumbnailBorderDom.appendChild(thumbnailItemsDom[0]);
+let timeRunning = 3000;
+let timeAutoNext = 7000;
+
+nextDom.onclick = function(){
+    showSlider('next');    
 }
 
-setup();
+prevDom.onclick = function(){
+    showSlider('prev');    
+}
+let runTimeOut;
+let runNextAuto = setTimeout(() => {
+    next.click();
+}, timeAutoNext)
+function showSlider(type){
+    let  SliderItemsDom = SliderDom.querySelectorAll('.carousel .list .item');
+    let thumbnailItemsDom = document.querySelectorAll('.carousel .thumbnail .item');
+    
+    if(type === 'next'){
+        SliderDom.appendChild(SliderItemsDom[0]);
+        thumbnailBorderDom.appendChild(thumbnailItemsDom[0]);
+        carouselDom.classList.add('next');
+    }else{
+        SliderDom.prepend(SliderItemsDom[SliderItemsDom.length - 1]);
+        thumbnailBorderDom.prepend(thumbnailItemsDom[thumbnailItemsDom.length - 1]);
+        carouselDom.classList.add('prev');
+    }
+    clearTimeout(runTimeOut);
+    runTimeOut = setTimeout(() => {
+        carouselDom.classList.remove('next');
+        carouselDom.classList.remove('prev');
+    }, timeRunning);
 
-window.addEventListener("resize", setup);
+    clearTimeout(runNextAuto);
+    runNextAuto = setTimeout(() => {
+        next.click();
+    }, timeAutoNext)
+}
 
-Draggable.create(wheel, {
-  allowContextMenu: true,
-  type: "rotation",
-  trigger: wheel,
-  inertia: true,
-  snap: {
-    rotation: gsap.utils.snap(360 / images.length)
-  }
-});
-
-gsap.to(wheel, {
-  rotation: -360,
-  ease: "none",
-  duration: images.length
-});
-
-cards.forEach(card => card.addEventListener("click", onClickCard));
-
-header.addEventListener("click", closeCurrentCard);
-
-function closeCurrentCard() {
-  if (currentCard) {
-    let img = header.querySelector("img"),
-      state = Flip.getState(img);
-    currentCard.appendChild(img);
-    Flip.from(state, {
-      ease: "power1.inOut",
-      scale: true
+document.addEventListener('DOMContentLoaded', function() {
+    // Target all stat numbers
+    const statNumbers = document.querySelectorAll('.stat-number');
+    
+    // Final values for each stat
+    const finalValues = [55, 47, 42, 42];
+    
+    // Animate the counting
+    statNumbers.forEach((stat, index) => {
+        let current = 0;
+        const target = finalValues[index];
+        const increment = Math.ceil(target / 50);
+        const timer = setInterval(() => {
+            current += increment;
+            if (current >= target) {
+                clearInterval(timer);
+                current = target;
+            }
+            stat.textContent = current + 'k';
+        }, 30);
     });
-    currentCard = null;
-  }
-}
-
-function onClickCard(e) {
-  let card = e.target,
-    image = card.querySelector("img");
-  if (card !== currentCard) {
-    closeCurrentCard();
-    currentCard = card;
-    let state = Flip.getState(image);
-    header.appendChild(image);
-    Flip.from(state, {
-      duration: 0.6,
-      scale: true,
-      ease: "power1.inOut"
-    });
-  } else {
-    closeCurrentCard();
-  }
-}
+});
