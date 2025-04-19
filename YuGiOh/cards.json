@@ -1,0 +1,209 @@
+{
+    "cards": [
+      {
+        "id": 1,
+        "name": "Dark Magician",
+        "type": "Monster",
+        "category": "Spellcaster / Normal",
+        "image": "image/monsters/magician.webp",
+        "description": "The ultimate wizard in terms of attack and defense.",
+        "atk": 2500,
+        "def": 2100,
+        "level": 7,
+        "attribute": "DARK"
+      },
+      {
+        "id": 2,
+        "name": "Blue-Eyes White Dragon",
+        "type": "Monster",
+        "category": "Dragon / Normal",
+        "image": "image/monsters/blue_eyes_white_dragon.jpg",
+        "description": "This legendary dragon is a powerful engine of destruction. Virtually invincible, very few have faced this awesome creature and lived to tell the tale.",
+        "atk": 3000,
+        "def": 2500,
+        "level": 8,
+        "attribute": "LIGHT"
+      },
+      {
+        "id": 3,
+        "name": "Red-Eyes Black Dragon",
+        "type": "Monster",
+        "category": "Dragon / Normal",
+        "image": "image/monsters/red_eyes_black_dragon.jpg",
+        "description": "A ferocious dragon with a deadly attack.",
+        "atk": 2400,
+        "def": 2000,
+        "level": 7,
+        "attribute": "DARK"
+      },
+      {
+        "id": 4,
+        "name": "Summoned Skull",
+        "type": "Monster",
+        "category": "Fiend / Normal",
+        "image": "image/monsters/summoned_skull.jpg",
+        "description": "A fiend with dark powers for confusing the enemy. Among the Fiend-Type monsters, this monster boasts considerable force.",
+        "atk": 2500,
+        "def": 1200,
+        "level": 6,
+        "attribute": "DARK"
+      },
+      {
+        "id": 5,
+        "name": "Dark Magician Girl",
+        "type": "Monster",
+        "category": "Spellcaster / Effect",
+        "image": "image/monsters/dark_magician_girl.jpg",
+        "description": "This card gains 300 ATK for every 'Dark Magician' or 'Magician of Black Chaos' in the GY.",
+        "atk": 2000,
+        "def": 1700,
+        "level": 6,
+        "attribute": "DARK"
+      },
+      {
+        "id": 6,
+        "name": "Pot of Greed",
+        "type": "Spell",
+        "category": "Normal",
+        "image": "image/spells/pot_of_greed.jpg",
+        "description": "Draw 2 cards from your Deck.",
+        "effect": "Card advantage"
+      },
+      {
+        "id": 7,
+        "name": "Monster Reborn",
+        "type": "Spell",
+        "category": "Normal",
+        "image": "image/spells/monster_reborn.jpg",
+        "description": "Target 1 monster in either GY; Special Summon it.",
+        "effect": "Monster revival"
+      },
+      {
+        "id": 8,
+        "name": "Raigeki",
+        "type": "Spell",
+        "category": "Normal",
+        "image": "image/spells/raigeki.jpg",
+        "description": "Destroy all monsters your opponent controls.",
+        "effect": "Field clearing"
+      },
+      {
+        "id": 9,
+        "name": "Dark Hole",
+        "type": "Spell",
+        "category": "Normal",
+        "image": "image/spells/dark_hole.jpg",
+        "description": "Destroy all monsters on the field.",
+        "effect": "Field clearing"
+      },
+      {
+        "id": 10,
+        "name": "Harpie's Feather Duster",
+        "type": "Spell",
+        "category": "Normal",
+        "image": "image/spells/harpies_feather_duster.jpg",
+        "description": "Destroy all Spell and Trap Cards your opponent controls.",
+        "effect": "Backrow clearing"
+      },
+      {
+        "id": 11,
+        "name": "Mirror Force",
+        "type": "Trap",
+        "category": "Normal",
+        "image": "image/traps/mirror_force.jpg",
+        "description": "When an opponent's monster declares an attack: Destroy all your opponent's Attack Position monsters.",
+        "effect": "Mass destruction"
+      },
+      {
+        "id": 12,
+        "name": "Infinite Impermanence",
+        "type": "Trap",
+        "category": "Normal",
+        "image": "image/traps/infinite_impermanence.jpg",
+        "description": "Target 1 face-up monster your opponent controls; negate its effects until the end of this turn.",
+        "effect": "Effect negation"
+      },
+      {
+        "id": 13,
+        "name": "Torrential Tribute",
+        "type": "Trap",
+        "category": "Normal",
+        "image": "image/traps/torrential_tribute.jpg",
+        "description": "When a monster(s) is Summoned: Destroy all monsters on the field.",
+        "effect": "Mass destruction"
+      },
+      {
+        "id": 14,
+        "name": "Solemn Judgment",
+        "type": "Trap",
+        "category": "Counter",
+        "image": "image/traps/solemn_judgment.jpg",
+        "description": "When a monster would be Summoned, OR a Spell/Trap Card is activated: Pay half your LP; negate the Summon or activation, and if you do, destroy it.",
+        "effect": "Negation"
+      },
+      {
+        "id": 15,
+        "name": "Call of the Haunted",
+        "type": "Trap",
+        "category": "Continuous",
+        "image": "image/traps/call_of_the_haunted.jpg",
+        "description": "Activate this card by targeting 1 monster in your GY; Special Summon that target in Attack Position. When this card leaves the field, destroy that monster. When that monster is destroyed, destroy this card.",
+        "effect": "Monster revival"
+      },
+      {
+        "id": 16,
+        "name": "Firewall Dragon",
+        "type": "Link",
+        "category": "Cyberse / Link / Effect",
+        "image": "image/links/firewall_dragon.jpg",
+        "description": "2+ monsters, except Tokens. Once per turn: You can target monsters on the field and/or GY up to the number of monsters co-linked to this card; return them to the hand.",
+        "atk": 2500,
+        "link": 4,
+        "attribute": "LIGHT"
+      },
+      {
+        "id": 17,
+        "name": "Accesscode Talker",
+        "type": "Link",
+        "category": "Cyberse / Link / Effect",
+        "image": "image/links/accesscode_talker.jpg",
+        "description": "2+ Effect Monsters. Gains 1000 ATK for each different Attribute among this card's materials. Cannot be targeted by opponent's card effects.",
+        "atk": 2300,
+        "link": 4,
+        "attribute": "DARK"
+      },
+      {
+        "id": 18,
+        "name": "Borrelsword Dragon",
+        "type": "Link",
+        "category": "Dragon / Link / Effect",
+        "image": "image/links/borrelsword_dragon.jpg",
+        "description": "3+ Effect Monsters. Cannot be destroyed by battle. Once per turn (Quick Effect): You can target 1 Attack Position monster; change it to Defense Position, also this card can make a second attack during each Battle Phase this turn.",
+        "atk": 3000,
+        "link": 4,
+        "attribute": "DARK"
+      },
+      {
+        "id": 19,
+        "name": "Knightmare Phoenix",
+        "type": "Link",
+        "category": "Fiend / Link / Effect",
+        "image": "image/links/knightmare_phoenix.jpg",
+        "description": "2+ monsters with different names. If this card is Link Summoned: You can discard 1 card, then target 1 Spell/Trap on the field; destroy it, then, if this card was co-linked when this effect was activated, you can draw 1 card.",
+        "atk": 1900,
+        "link": 2,
+        "attribute": "FIRE"
+      },
+      {
+        "id": 20,
+        "name": "Sky Striker Ace - Kagari",
+        "type": "Link",
+        "category": "Warrior / Link / Effect",
+        "image": "image/links/sky_striker_ace_kagari.jpg",
+        "description": "1 non-FIRE monster. If this card is Link Summoned: You can target 1 \"Sky Striker\" Spell in your GY; add it to your hand. Gains 100 ATK for each Spell in your GY.",
+        "atk": 1500,
+        "link": 1,
+        "attribute": "FIRE"
+      }
+    ]
+  } 

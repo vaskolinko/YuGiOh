@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="stili.css">
 </head>
 <body>
     <header>
@@ -16,7 +17,7 @@
         <!-- list item -->
         <div class="list">
             <div class="item">
-                <img src="image/slika1.jpg">
+                <img src="image/slika9.jpg">
                 <div class="content">
                     <div class="author">KONAMI</div>
                     <div class="title">Yu-Gi-Oh</div>
@@ -31,7 +32,7 @@
                 </div>
             </div>
             <div class="item">
-                <img src="image/slika1.jpg">
+                <img src="image/slika7.jpg">
                 <div class="content">
                     <div class="author">KONAMI</div>
                     <div class="title">YUGIOH</div>
@@ -53,7 +54,7 @@
                 </div>
             </div>
             <div class="item">
-                <img src="image/slika1.jpg">
+                <img src="image/slika8.jpg">
                 <div class="content">
                     <div class="author">KONAMI</div>
                     <div class="title">YUGIOH</div>
@@ -68,7 +69,7 @@
                 </div>
             </div>
             <div class="item">
-                <img src="image/slika1.jpg">
+                <img src="image/slika6.jpeg">
                 <div class="content">
                     <div class="author">KONAMI</div>
                     <div class="title">YUGIOH</div>
@@ -86,7 +87,7 @@
         <!-- list thumnail -->
         <div class="thumbnail">
             <div class="item">
-                <img src="image/magician.webp">
+                <img src="image/monsters/magician.webp">
                 <div class="content">
                     <div class="title">
                         Monsters
@@ -97,7 +98,7 @@
                 </div>
             </div>
             <div class="item">
-                <img src="image/impermanance_karta.webp">
+                <img src="image/trap/impermanance_karta.webp">
                 <div class="content">
                     <div class="title">
                         Traps
@@ -108,7 +109,7 @@
                 </div>
             </div>
             <div class="item">
-                <img src="image/greed3.jpg">
+                <img src="image/spell/greed3.jpg">
                 <div class="content">
                     <div class="title">
                         Spells
@@ -119,7 +120,7 @@
                 </div>
             </div>
             <div class="item">
-                <img src="image/link.jpg">
+                <img src="image/link/link.jpg">
                 <div class="content">
                     <div class="title">
 					</div>
@@ -140,7 +141,7 @@
         <div class="time"></div>
     </div>
 
-    <div class="stats-banner">
+   <!-- <div class="stats-banner">
         <div class="stat-item">
             <div class="stat-number">55k</div>
             <div class="stat-label">Monster cards</div>
@@ -166,6 +167,54 @@
             <div class="stat-number">42k</div>
             <div class="stat-label">Link cards</div>
         </div>
+    </div>
+    -->
+
+
+
+    <!-- Updated HTML for banner2 div -->
+    <div class="banner2">
+        <div class="banner2-title">
+            <h2>CARD COLLECTION</h2>
+            <p>Explore our extensive collection of Yu-Gi-Oh cards. Click on any card to view more details.</p>
+        </div>
+
+        <div class="card-filter-buttons">
+            <button class="filter-btn active" data-filter="all">ALL CARDS</button>
+            <button class="filter-btn" data-filter="Monster">MONSTER CARDS</button>
+            <button class="filter-btn" data-filter="Spell">SPELL CARDS</button>
+            <button class="filter-btn" data-filter="Trap">TRAP CARDS</button>
+            <button class="filter-btn" data-filter="Link">LINK CARDS</button>
+        </div>
+        
+        <div class="card-gallery">
+            <div class="gallery-container">
+                <div class="cards-wrapper">
+                    <!-- Cards will be added here dynamically -->
+                </div>
+            </div>
+        </div>
+        
+        <!-- Keep the modal for showing card details when clicked -->
+        <div class="card-modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <div class="modal-card-details">
+                    <img src="" alt="Card Image" class="modal-card-image">
+                    <div class="modal-card-info">
+                        <h2 class="modal-card-name"></h2>
+                        <p class="modal-card-type"></p>
+                        <p class="modal-card-description"></p>
+                        <div class="modal-card-stats"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
     </div>
 
     <script src="script.js"></script>

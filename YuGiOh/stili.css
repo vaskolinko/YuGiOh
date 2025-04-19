@@ -1,0 +1,394 @@
+/* Updated Card Gallery Styling */
+.banner2 {
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(to bottom, #1a1a1a 0%, #000000 100%);
+    padding: 120px 0 50px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Keep the visual elements */
+.banner2::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none"><path d="M0,0 L1000,0 L950,100 L50,100 Z" fill="rgba(30,30,30,0.6)"/></svg>') no-repeat;
+    background-size: cover;
+    opacity: 0.3;
+    z-index: 1;
+}
+
+.banner2::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(rgba(50, 50, 50, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(50, 50, 50, 0.03) 1px, transparent 1px);
+    background-size: 20px 20px;
+    z-index: 0;
+}
+
+/* Card gallery adjustments */
+.card-gallery {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 70%;
+    position: relative;
+    z-index: 2;
+    margin-top: 20px;
+}
+
+/* Change from horizontal scroll to grid layout */
+.gallery-container {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto; /* Allow vertical scrolling */
+    overflow-x: hidden;
+    scrollbar-width: thin; /* Firefox */
+    scrollbar-color: #f1683a #2a2a2a; /* Firefox */
+    cursor: default;
+}
+
+/* Style scrollbar for Webkit browsers */
+.gallery-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.gallery-container::-webkit-scrollbar-track {
+    background: #2a2a2a;
+}
+
+.gallery-container::-webkit-scrollbar-thumb {
+    background: #f1683a;
+    border-radius: 4px;
+}
+
+/* Change to grid layout */
+.cards-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 25px;
+    padding: 20px;
+    height: auto;
+}
+
+/* Update card item to show only images */
+.card-item {
+    height: 300px;
+    background-color: transparent;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.7), 0 0 15px rgba(241, 104, 58, 0.2);
+    border: 1px solid rgba(241, 104, 58, 0.2);
+}
+
+.card-item:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 15px 30px rgba(241, 104, 58, 0.4), 0 0 20px rgba(241, 104, 58, 0.3);
+    border-color: rgba(241, 104, 58, 0.5);
+}
+
+/* Make card image fill the entire card */
+.card-image {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s;
+}
+
+.card-item:hover .card-image {
+    transform: scale(1.1);
+}
+
+/* Hide the card info */
+.card-info {
+    display: none;
+}
+
+/* Add card name on hover */
+.card-item::after {
+    content: attr(data-name);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.card-item:hover::after {
+    transform: translateY(0);
+}
+
+/* Keep the section title */
+.banner2-title {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    margin: 0 auto 30px;
+    max-width: 800px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.banner2-title .brand {
+    color: white;
+    font-size: 24px;
+    letter-spacing: 10px;
+    font-weight: bold;
+}
+
+.banner2-title .category {
+    color: #f1683a;
+    font-size: 48px;
+    font-weight: bold;
+    line-height: 1.2;
+}
+
+.banner2-title .description {
+    color: #aaa;
+    margin: 10px auto 0;
+    line-height: 1.6;
+}
+
+/* Keep the accent light */
+.accent-light {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(241, 104, 58, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
+    top: 20%;
+    right: 10%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .cards-wrapper {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        gap: 15px;
+    }
+    
+    .card-item {
+        height: 200px;
+    }
+    
+    .banner2-title .category {
+        font-size: 36px;
+    }
+}
+
+/* Keep modal styling as is */
+.card-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    overflow: auto;
+}
+
+.modal-content {
+    background-color: #1a1a1a;
+    margin: 5% auto;
+    padding: 30px;
+    width: 80%;
+    max-width: 900px;
+    border-radius: 15px;
+    box-shadow: 0 0 30px rgba(241, 104, 58, 0.5);
+    position: relative;
+}
+
+.close-modal {
+    color: #f1683a;
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-modal:hover {
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.modal-card-details {
+    display: flex;
+    gap: 30px;
+}
+
+.modal-card-image {
+    width: 300px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.modal-card-info {
+    flex: 1;
+    color: #fff;
+}
+
+.modal-card-name {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #f1683a;
+}
+
+.modal-card-type {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: #ddd;
+}
+
+.modal-card-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.modal-card-stats {
+    font-size: 1rem;
+    padding: 15px;
+    background-color: #2a2a2a;
+    border-radius: 10px;
+}
+
+/* Fixed Title Styling for Banner2 */
+.banner2-title {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    margin: 0 auto;
+    padding-top: 30px;
+    max-width: 800px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.banner2-title .category,
+.banner2-title h2 {
+    color: #f1683a;
+    font-size: 48px;
+    font-weight: bold;
+    line-height: 1.2;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.banner2-title .description,
+.banner2-title p {
+    color: #aaa;
+    margin: 10px auto 30px;
+    line-height: 1.6;
+    font-size: 16px;
+    max-width: 600px;
+}
+
+/* Add a subtle glow effect to the title */
+.banner2-title .category,
+.banner2-title h2 {
+    text-shadow: 0 0 15px rgba(241, 104, 58, 0.4);
+}
+
+/* If you're using an H2 instead of div with class */
+.banner2-title h2 {
+    margin-top: 0;
+}
+
+/* Alternative if the HTML structure uses direct h2 and p tags */
+.banner2 h2 {
+    color: #f1683a;
+    font-size: 48px;
+    font-weight: bold;
+    line-height: 1.2;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+    text-shadow: 0 0 15px rgba(241, 104, 58, 0.4);
+}
+
+.banner2 > p {
+    color: #aaa;
+    margin: 10px auto 30px;
+    line-height: 1.6;
+    font-size: 16px;
+    max-width: 600px;
+    text-align: center;
+}
+
+
+/* Card Filter Buttons Styling */
+.card-filter-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 0 auto 30px;
+    flex-wrap: wrap;
+    max-width: 900px;
+    position: relative;
+    z-index: 5;
+}
+
+.filter-btn {
+    background-color: #2a2a2a;
+    color: #fff;
+    border: 1px solid rgba(241, 104, 58, 0.3);
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+
+.filter-btn:hover {
+    background-color: #3a3a3a;
+    box-shadow: 0 0 15px rgba(241, 104, 58, 0.2);
+    transform: translateY(-2px);
+}
+
+.filter-btn.active {
+    background-color: #f1683a;
+    color: #fff;
+    border-color: #f1683a;
+    box-shadow: 0 0 15px rgba(241, 104, 58, 0.4);
+}
+
+/* Card hide/show classes */
+.card-item {
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.card-item.hidden {
+    opacity: 0;
+    transform: scale(0.8);
+    pointer-events: none;
+    position: absolute;
+    z-index: -1;
+}
+

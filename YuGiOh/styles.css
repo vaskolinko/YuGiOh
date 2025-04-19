@@ -9,7 +9,6 @@ body{
 
 
 
-
 a{
     text-decoration: none;
 }
@@ -29,7 +28,7 @@ header a{
 }
 /* carousel */
 .carousel {
-    height: 90vh; /* Reduce from 100vh to leave space for stats */
+    height: 100vh; /* Reduce from 100vh to leave space for stats */
     margin-top: -50px;
     width: 100vw;
     overflow: hidden;
@@ -53,13 +52,15 @@ header a{
     top: 20%;
     width: 1140px;
     max-width: 80%;
-    left: 50%;
+    left: 45%;
     transform: translateX(-50%);
     padding-right: 30%;
     box-sizing: border-box;
     color: #fff;
     text-shadow: 0 5px 10px #0004;
 }
+
+
 .carousel .list .item .author{
     font-weight: bold;
     letter-spacing: 10px;
@@ -100,7 +101,7 @@ header a{
 .thumbnail {
     position: absolute;
     bottom: 100px; /* Keep this value to position above the stats banner */
-    left: 60%; /* Change from 50% to 60% to move right */
+    left: 75%; /* Change from 50% to 60% to move right */
     width: max-content;
     z-index: 100;
     display: flex;
@@ -373,7 +374,7 @@ body {
 }
 
 .stat-number {
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: bold;
     margin-bottom: 5px;
 }
@@ -387,11 +388,12 @@ body {
     height: 60px;
     width: 2px;
     background: linear-gradient(to bottom, 
-        #0a2050 0%, /* Darker blue at top */
-        #1a3a8f 40%, 
-        #3a75d9 70%,
-        #a7c5ff 100%); /* Lighter blue-white at bottom */
+        #ffffff 0%, /* White at top */
+        #d8c5ff 25%, /* Light purple */
+        #9c6eff 50%, /* Medium purple */
+        #4e0094 100%); /* Deep purple at bottom - similar to your background */
     transform: rotate(20deg);
-    box-shadow: 0 0 8px rgba(0, 102, 255, 0.7); /* Add glow effect */
+    box-shadow: 0 0 8px rgba(128, 0, 255, 0.7); /* Purple glow effect */
     border-radius: 1px;
 }
+
