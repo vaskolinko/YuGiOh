@@ -6,6 +6,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="stili.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
     <header>
@@ -196,20 +197,48 @@
         </div>
         
         <!-- Keep the modal for showing card details when clicked -->
-        <div class="card-modal">
-            <div class="modal-content">
-                <span class="close-modal">&times;</span>
-                <div class="modal-card-details">
-                    <img src="" alt="Card Image" class="modal-card-image">
-                    <div class="modal-card-info">
-                        <h2 class="modal-card-name"></h2>
-                        <p class="modal-card-type"></p>
-                        <p class="modal-card-description"></p>
-                        <div class="modal-card-stats"></div>
-                    </div>
+        <!-- Spremenite HTML za modalno okno tako, da vključuje inspect gumb -->
+<div class="card-modal">
+    <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <div class="modal-card-details">
+            <div class="card-image-container">
+                <img src="" alt="Card Image" class="modal-card-image">
+                <div class="inspect-button">
+                    <i class="fa fa-search-plus"></i> INSPECT
+                </div>
+            </div>
+            <div class="modal-card-info">
+                <h2 class="modal-card-name"></h2>
+                <p class="modal-card-type"></p>
+                <p class="modal-card-description"></p>
+                <div class="modal-card-stats"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Dodajte ta div na konec body taga za 3D inspect modal -->
+<div class="inspect-modal">
+    <div class="inspect-container">
+        <div class="close-inspect">&times;</div>
+        <div class="card-3d-space">
+            <div class="card-3d">
+                <div class="card-3d-front">
+                    <!-- Prednja stran karte bo dodana dinamično -->
+                </div>
+                <div class="card-3d-back">
+                    <img src="image/back.png" alt="Card Back">
                 </div>
             </div>
         </div>
+        <div class="inspect-controls">
+            <button class="rotate-btn" data-rotation="left">⟲ Rotate left</button>
+            <button class="flip-btn">Rotate card</button>
+            <button class="rotate-btn" data-rotation="right">Rotate right ⟳</button>
+        </div>
+    </div>
+</div>
     </div>
 
 
@@ -218,5 +247,20 @@
     </div>
 
     <script src="script.js"></script>
+
+    <script>
+        // Pot do zadnje strani karte - dodajte ustrezno sliko
+        const cardBackImage = "image/card-back.jpg";
+        
+        // Preverite, če je slika naložena
+        const preloadBackImage = new Image();
+        preloadBackImage.src = cardBackImage;
+        preloadBackImage.onload = function() {
+            console.log("Card back image loaded successfully");
+        };
+        preloadBackImage.onerror = function() {
+            console.error("Error loading card back image");
+        };
+        </script>
 </body>
 </html>

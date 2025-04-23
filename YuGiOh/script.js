@@ -52,27 +52,77 @@ document.addEventListener('DOMContentLoaded', function() {
     // Card data - you can expand this with more cards
     const yugiohCards = [
         {
-            id: 1,
-            name: "Dark Magician",
-            type: "Monster",
-            category: "Spellcaster / Normal",
-            image: "image/monsters/magician.webp",
-            description: "The ultimate wizard in terms of attack and defense.",
-            atk: 2500,
-            def: 2100,
-            level: 7,
-            attribute: "DARK"
+            id: 17,
+            name: "Dark Hole",
+            type: "Spell",
+            category: "Normal",
+            image: "image/spell/hole.jpg",
+            description: "Destroy all monsters on the field.",
+            effect: "Mass destruction"
         },
         {
             id: 6,
             name: "Blue Eyes White Dragon",
             type: "Monster",
-            category: "Normal",
+            category: "Dragon / Normal",
             image: "image/monsters/blueeye.jpg",
-            description: "The ultimate wizard in terms of attack and defense.",
+            description: "This legendary dragon is a powerful engine of destruction. Virtually invincible, very few have faced this awesome creature and lived to tell the tale.",
+            atk: 3000,
+            def: 2500,
+            level: 8,
+            attribute: "LIGHT"
+        },
+        {
+            id: 5,
+            name: "Fake Trap",
+            type: "Trap",
+            category: "Normal",
+            image: "image/trap/faketrap.webp",
+            description: "When your opponent activates a card or effect that would destroy a Trap Card(s) you control: You can discard this card; your Trap Cards cannot be destroyed by your opponent's card effects this turn.",
+            effect: "Protection"
+        },
+        {
+            id: 24,
+            name: "Knightmare Phoenix",
+            type: "Link",
+            category: "Fiend / Link / Effect",
+            image: "image/link/phoenix.webp",
+            description: "2+ monsters with different names. If this card is Link Summoned: You can discard 1 card, then target 1 Spell/Trap on the field; destroy it, then, if this card was co-linked when this effect was activated, you can draw 1 card.",
+            atk: 1900,
+            link: 2,
+            attribute: "FIRE"
+        },
+        {
+            id: 10,
+            name: "Elemental HERO Neos",
+            type: "Monster",
+            category: "Warrior / Normal",
+            image: "image/monsters/hero.webp",
+            description: "A new Elemental HERO has arrived from Neo-Space! When he initiates a Contact Fusion with a Neo-Spacian his unknown powers are unleashed.",
             atk: 2500,
-            def: 2100,
+            def: 2000,
             level: 7,
+            attribute: "LIGHT"
+        },
+        {
+            id: 15,
+            name: "Gozen Match",
+            type: "Trap",
+            category: "Continuous",
+            image: "image/trap/gozen.jpg",
+            description: "Each player can only control 1 Attribute of monster. Send all other monsters they control to the GY.",
+            effect: "Field control"
+        },
+        {
+            id: 8,
+            name: "Summoned Skull",
+            type: "Monster",
+            category: "Fiend / Normal",
+            image: "image/monsters/skull.jpg",
+            description: "A fiend with dark powers for confusing the enemy. Among the Fiend-Type monsters, this monster boasts considerable force.",
+            atk: 2500,
+            def: 1200,
+            level: 6,
             attribute: "DARK"
         },
         {
@@ -85,13 +135,45 @@ document.addEventListener('DOMContentLoaded', function() {
             effect: "Quick-effect negation"
         },
         {
-            id: 3,
-            name: "Pot of Greed",
+            id: 23,
+            name: "Apollousa, Bow of the Goddess",
+            type: "Link",
+            category: "Fairy / Link / Effect",
+            image: "image/link/apollousa.webp",
+            description: "2+ Effect Monsters. This card gains 800 ATK for each material used for its Link Summon. Once per turn: You can negate the activation of an opponent's monster effect by reducing this card's ATK by 800 (until the end of this turn).",
+            atk: 0,
+            link: 4,
+            attribute: "WIND"
+        },
+        {
+            id: 18,
+            name: "Raigeki",
             type: "Spell",
             category: "Normal",
-            image: "image/spell/greed3.jpg",
-            description: "Draw 2 cards from your Deck.",
-            effect: "Card advantage"
+            image: "image/spell/raigeki.jpg",
+            description: "Destroy all monsters your opponent controls.",
+            effect: "Opponent destruction"
+        },
+        {
+            id: 7,
+            name: "Red-Eyes Black Dragon",
+            type: "Monster",
+            category: "Dragon / Normal",
+            image: "image/monsters/redeye.jpg",
+            description: "A ferocious dragon with deadly attack power.",
+            atk: 2400,
+            def: 2000,
+            level: 7,
+            attribute: "DARK"
+        },
+        {
+            id: 11,
+            name: "Mirror Force",
+            type: "Trap",
+            category: "Normal",
+            image: "image/trap/mirror.jpg",
+            description: "When an opponent's monster declares an attack: Destroy all your opponent's Attack Position monsters.",
+            effect: "Mass destruction"
         },
         {
             id: 4,
@@ -105,16 +187,114 @@ document.addEventListener('DOMContentLoaded', function() {
             attribute: "LIGHT"
         },
         {
-            id: 5,
-            name: "Fake Trap",
+            id: 20,
+            name: "Polymerization",
+            type: "Spell",
+            category: "Normal",
+            image: "image/spell/poly.jpg",
+            description: "Fusion Summon 1 Fusion Monster from your Extra Deck, using monsters from your hand or field as Fusion Material.",
+            effect: "Fusion summoning"
+        },
+        {
+            id: 1,
+            name: "Dark Magician",
+            type: "Monster",
+            category: "Spellcaster / Normal",
+            image: "image/monsters/magician.webp",
+            description: "The ultimate wizard in terms of attack and defense.",
+            atk: 2500,
+            def: 2100,
+            level: 7,
+            attribute: "DARK"
+        },
+        {
+            id: 19,
+            name: "Mystical Space Typhoon",
+            type: "Spell",
+            category: "Quick-Play",
+            image: "image/spell/typhoon.jpg",
+            description: "Target 1 Spell/Trap on the field; destroy that target.",
+            effect: "Spell/Trap removal"
+        },
+        {
+            id: 12,
+            name: "Torrential Tribute",
             type: "Trap",
             category: "Normal",
-            image: "image/trap/faketrap.webp",
-            description: "2+ monsters, except Tokens. Once per turn: You can target monsters on the field and/or GY up to the number of monsters co-linked to this card; return them to the hand.",
-            effect: "Quick-effect negation"
+            image: "image/trap/tribute.webp",
+            description: "When a monster(s) is Summoned: Destroy all monsters on the field.",
+            effect: "Board wipe"
+        },
+        {
+            id: 25,
+            name: "Accesscode Talker",
+            type: "Link",
+            category: "Cyberse / Link / Effect",
+            image: "image/link/access.webp",
+            description: "2+ Effect Monsters. If this card is Link Summoned: You can target monsters in your GY up to the number of Link Monsters used as material for this card; banish them. Gains 1000 ATK for each attribute among those banished monsters.",
+            atk: 2300,
+            link: 4,
+            attribute: "DARK"
+        },
+        {
+            id: 9,
+            name: "Stardust Dragon",
+            type: "Monster",
+            category: "Dragon / Synchro / Effect",
+            image: "image/monsters/stardust.webp",
+            description: "During either player's turn, when a card or effect is activated that would destroy a card(s) on the field: You can Tribute this card; negate the activation, and if you do, destroy it.",
+            atk: 2500,
+            def: 2000,
+            level: 8,
+            attribute: "LIGHT"
+        },
+        {
+            id: 3,
+            name: "Pot of Greed",
+            type: "Spell",
+            category: "Normal",
+            image: "image/spell/greed3.jpg",
+            description: "Draw 2 cards from your Deck.",
+            effect: "Card advantage"
+        },
+        {
+            id: 22,
+            name: "Borrelsword Dragon",
+            type: "Link",
+            category: "Dragon / Link / Effect",
+            image: "image/link/borrel.jpg",
+            description: "3+ Effect Monsters. Cannot be destroyed by your opponent's card effects. Once per turn: You can target 1 Attack Position monster; change it to Defense Position, also this card can make a second attack during each Battle Phase this turn.",
+            atk: 3000,
+            link: 4,
+            attribute: "DARK"
+        },
+        {
+            id: 13,
+            name: "Solemn Judgment",
+            type: "Trap",
+            category: "Counter",
+            image: "image/trap/solemn.webp",
+            description: "When a monster would be Summoned, OR a Spell/Trap Card is activated: Pay half your LP; negate the Summon or activation, and if you do, destroy that card.",
+            effect: "Counter negation"
+        },
+        {
+            id: 16,
+            name: "Monster Reborn",
+            type: "Spell",
+            category: "Normal",
+            image: "image/spell/reborn.jpg",
+            description: "Target 1 monster in either GY; Special Summon it.",
+            effect: "Monster revival"
+        },
+        {
+            id: 14,
+            name: "Imperial Order",
+            type: "Trap",
+            category: "Continuous",
+            image: "image/trap/order.jpg",
+            description: "Negate all Spell Card effects on the field. During each of your Standby Phases, pay 700 LP or destroy this card.",
+            effect: "Spell negation"
         }
-          
-        // Add more cards as needed
     ];
 
     // Get the cards-wrapper element
@@ -295,3 +475,141 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
+// Dodajte to kodo na konec script.js datoteke
+
+// Ko se DOM naloži, nastavimo inspect funkcionalnost
+document.addEventListener('DOMContentLoaded', function() {
+    // Nastavimo dogodek za gumb Inspect
+    setupInspectFunctionality();
+});
+
+// Funkcija za nastavitev inspect funkcionalnosti
+function setupInspectFunctionality() {
+    // Pridobimo inspect gumb in modalno okno
+    const inspectButton = document.querySelector('.inspect-button');
+    const inspectModal = document.querySelector('.inspect-modal');
+    
+    // Če gumb ali modalno okno ne obstaja, končamo
+    if (!inspectButton || !inspectModal) {
+        console.error("Inspect elements not found!");
+        return;
+    }
+    
+    // Pridobimo potrebne elemente
+    const modalImage = document.querySelector('.modal-card-image');
+    const card3d = inspectModal.querySelector('.card-3d');
+    const card3dFront = inspectModal.querySelector('.card-3d-front');
+    const closeInspect = inspectModal.querySelector('.close-inspect');
+    const rotateButtons = inspectModal.querySelectorAll('.rotate-btn');
+    const flipButton = inspectModal.querySelector('.flip-btn');
+    const card3dSpace = inspectModal.querySelector('.card-3d-space');
+    const body = document.body;
+    
+    // Globalne spremenljivke za sledenje rotacije
+    let currentRotation = 0;
+    let isFlipped = false;
+    
+    // Dodamo dogodek za klik na inspect gumb
+    inspectButton.addEventListener('click', function() {
+        // Pridobimo trenutno sliko karte
+        const currentCardImage = modalImage.src;
+        
+        // Nastavimo sprednjo stran 3D karte
+        card3dFront.innerHTML = `<img src="${currentCardImage}" alt="Card Front">`;
+        
+        // Prikažemo inspect modal
+        inspectModal.style.display = 'flex';
+        
+        // Začetni položaj karte
+        card3d.style.transform = 'rotateY(0deg)';
+        currentRotation = 0;
+        isFlipped = false;
+        
+        // Preprečimo drsenje ozadja
+        body.style.overflow = 'hidden';
+    });
+    
+    // Zapri inspect modal
+    closeInspect.addEventListener('click', function() {
+        inspectModal.style.display = 'none';
+        body.style.overflow = 'auto';
+    });
+    
+    // Gumbi za obračanje
+    rotateButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const direction = this.getAttribute('data-rotation');
+            
+            if (direction === 'left') {
+                currentRotation -= 15;
+            } else {
+                currentRotation += 15;
+            }
+            
+            // Posodobimo rotacijo
+            updateCardTransform();
+        });
+    });
+    
+    // Gumb za obračanje (flip) karte
+    flipButton.addEventListener('click', function() {
+        isFlipped = !isFlipped;
+        updateCardTransform();
+    });
+    
+    // Funkcija za posodabljanje transformacije karte
+    function updateCardTransform() {
+        if (isFlipped) {
+            card3d.style.transform = `rotateY(${currentRotation + 180}deg)`;
+        } else {
+            card3d.style.transform = `rotateY(${currentRotation}deg)`;
+        }
+    }
+    
+    // Dodaj funkcionalnost drsnika za rotacijo z miško
+    let isDragging = false;
+    let startPosition = 0;
+    let startRotation = 0;
+    
+    card3dSpace.addEventListener('mousedown', function(e) {
+        isDragging = true;
+        startPosition = e.clientX;
+        startRotation = currentRotation;
+        this.style.cursor = 'grabbing';
+    });
+    
+    document.addEventListener('mousemove', function(e) {
+        if (!isDragging) return;
+        
+        const deltaX = e.clientX - startPosition;
+        currentRotation = startRotation + deltaX / 3;
+        updateCardTransform();
+    });
+    
+    document.addEventListener('mouseup', function() {
+        isDragging = false;
+        card3dSpace.style.cursor = 'grab';
+    });
+    
+    // Dodaj poslušalce za mobilne naprave (touch)
+    let touchStartX = 0;
+    
+    card3dSpace.addEventListener('touchstart', function(e) {
+        touchStartX = e.touches[0].clientX;
+        startRotation = currentRotation;
+    });
+    
+    card3dSpace.addEventListener('touchmove', function(e) {
+        const deltaX = e.touches[0].clientX - touchStartX;
+        currentRotation = startRotation + deltaX / 3;
+        updateCardTransform();
+    });
+    
+    // Zapiranje modala ob kliku izven vsebine
+    window.addEventListener('click', function(e) {
+        if (e.target === inspectModal) {
+            inspectModal.style.display = 'none';
+            body.style.overflow = 'auto';
+        }
+    });
+}
